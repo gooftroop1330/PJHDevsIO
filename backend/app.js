@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodejs-nodemailer-outlook");
 
 // create a new Express application instance 
 const app = express();
@@ -33,23 +33,30 @@ app.post("/sendmail", (req, res) => {
 });
 
 const sendMail = (user, callback) => {
-    const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
+    nodemailer.sendEmail({
+        host: "smtp.office365.com",
         port: 587,
         secure: false,
         auth: {
-            user: "pjhdevs@gmail.com",
-            pass: "It'sASecret3"
-        }
+            user: "jcharrison@pjhdevs.io",
+            pass: ""
+        },
+        from: `"PJHDevs", "jcharrison@pjhdevs.io"`,
+        to: "prestonsmith657@gmail.com",
+        subject: "Test",
+        html: "<table style='border: 2px solid black'>" +
+            "<tr style='border: 2px solid black'>" +
+            "<th>Cool</th>" +
+            "<th>Not Cool</th>" +
+            "</tr>" +
+            "<tr>" +
+            "<td>X</td>" +
+            "<td></td>" +
+            "</tr>" +
+            "</table>"
     });
 
-    transporter.sendMail(mailOptions, callback);
-}
-
-const mailOptions = {
-    from: `"PJHDevs", "pjhdevs@gmail.com"`,
-    to: "prestonsmith657@gmail.com",
-    subject: "testerrrrrrr",
-    html: "<h1>yeah boy</h1>"
+    callback();
 };
+
 
