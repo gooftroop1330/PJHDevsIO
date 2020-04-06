@@ -1,0 +1,9 @@
+footer {
+  background: rgb(34,34,34);
+  background: linear-gradient(0deg, rgba(34,34,34,1) 0%, rgba(68,68,68,1) 100%);
+}
+
+#bottomLogo {
+  width: 125px;
+  height: 125px;
+}

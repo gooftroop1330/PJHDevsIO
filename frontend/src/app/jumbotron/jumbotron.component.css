@@ -1,0 +1,40 @@
+.intro-2 {
+  background: url("../../assets/abstracty.gif")no-repeat center center;
+  object-fit: cover;
+  object-position: 20% 10px;
+}
+#overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,1)35%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 65%);
+  background-size: auto;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 42px;
+
+}
+
+#description {
+  font-family: 'Questrial', sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+@media (max-width: 650px)
+{
+  h2
+  {
+    font-size: 32px;
+  }
+  #description
+  {
+    font-size: 16px;
+    padding-top: 42px;
+    padding-bottom: 42px;
+    line-height: 24px;
+  }
+}

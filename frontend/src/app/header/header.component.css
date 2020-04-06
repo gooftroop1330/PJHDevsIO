@@ -1,0 +1,31 @@
+#topLogo {
+  height:215px;
+  width:215px;
+  margin-top: -35px;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 42px;
+  text-align: center;
+  padding-right: 145px;
+}
+nav {
+  background: rgb(34,34,34);
+  background: linear-gradient(180deg, rgba(34,34,34,1) 0%, rgba(68,68,68,1) 100%);
+}
+
+.navbar-collapse {
+  text-align: center;
+}
+
+@media (max-width: 675px){
+  #topLogo {
+    height: 100px;
+    width: 100px;
+    margin-top: -15px;
+  }
+  p {
+    display: none;
+  }
+}

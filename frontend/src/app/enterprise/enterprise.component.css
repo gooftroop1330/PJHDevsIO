@@ -1,0 +1,30 @@
+mat-card {
+  margin-top: 30px;
+}
+
+#padding {
+  padding: 2rem;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+}
+
+#phrase {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 24px;
+  font-style: italic;
+}
+
+#description {
+  font-family: 'Questrial', sans-serif;
+  font-size: 20px;
+}
+
+@media (max-width: 650px){
+  #description {
+    font-size: 16px;
+  }
+}

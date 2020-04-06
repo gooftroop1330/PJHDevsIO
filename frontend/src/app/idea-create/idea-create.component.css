@@ -1,0 +1,8 @@
+mat-form-field, textarea {
+  width: 100%;
+  resize: none;
+}
+
+mat-card {
+  margin-top: 30px;
+}

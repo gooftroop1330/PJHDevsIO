@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark grey darken-3">
+  <img id="topLogo" src="../../assets/logo.png" alt="Logo">
+  <p class="text-white">PJH Devs</p>
+    <button class="hamburger hamburger--spin" (click)="clickEvent()" [ngClass]="status ? 'is-active' : ''" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  <div mdbCollapse [isCollapsed]="true" class="navbar-collapse">
+    <ul class="list-unstyled">
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#webDev">Web Development</a></li>
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#mobiDev">Mobile Development</a></li>
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#legacy">Legacy Modernization</a></li>
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#enterprise">Enterprise Development</a></li>
+    </ul>
+  </div>
+</nav>
+
