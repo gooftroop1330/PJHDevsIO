@@ -20,7 +20,7 @@ app.listen(3000, () => {
 app.post("/sendmail", (req, res) => {
     console.log("request came");
     let user = req.body;
-    sendMail(user, (err, info) => {
+    sendConfirmationMail(user, (err, info) => {
         if (err) {
             console.log(err);
             res.status(400);
@@ -32,7 +32,7 @@ app.post("/sendmail", (req, res) => {
     });
 });
 
-const sendMail = (user, callback) => {
+const sendConfirmationMail = (user, callback) => {
     nodemailer.sendEmail({
         host: "smtp.office365.com",
         port: 587,
