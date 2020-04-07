@@ -1,4 +1,7 @@
 import {Component} from '@angular/core';
+import { NgForm } from "@angular/forms";
+import { Idea } from '../idea.model';
+import { IdeaService } from '../idea.service'
 
 @Component({
   selector: 'app-idea-create',
@@ -6,9 +9,17 @@ import {Component} from '@angular/core';
   styleUrls: ['./idea-create.component.css']
 })
 export class IdeaCreateComponent {
-  enteredValue = '';
-  newIdea = 'Idea goes here';
-  onAddIdea() {
-    this.newIdea = this.enteredValue;
+  constructor(private ideaService: IdeaService) { }
+  onAddIdea(form: NgForm) {
+    if(form.invalid) { return; }
+    const idea: Idea = {
+      first_name: form.value.first_name,
+      last_name: form.value.last_name,
+      email: form.value.email,
+      phone_number: form.value.phone_number,
+      app_name: form.value.app_name,
+      description: form.value.description,
+    };
+    console.log(idea)
   }
 }

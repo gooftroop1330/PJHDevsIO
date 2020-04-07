@@ -38,10 +38,10 @@ const sendConfirmationMail = (user, callback) => {
         port: 587,
         secure: false,
         auth: {
-            user: "jcharrison@pjhdevs.io",
-            pass: ""
+            user: "pjsmith@pjhdevs.io",
+            pass: "Nova2019!"
         },
-        from: `"PJHDevs", "jcharrison@pjhdevs.io"`,
+        from: `"PJHDevs", "no-reply@pjhdevs.io"`,
         to: "prestonsmith657@gmail.com",
         subject: "Test",
         html: "<table style='border: 2px solid black'>" +

@@ -1,26 +1,89 @@
 <mat-card id="create-idea">
-  <mat-form-field color="accent">
-    <input matInput type="text" id="first_name" name="first_name" placeholder="First Name">
-  </mat-form-field>
-  <br/>
-  <mat-form-field color="accent">
-    <input matInput type="text" id="last_name" name="last_name" placeholder="Last Name">
-  </mat-form-field>
-  <br/>
-  <mat-form-field color="accent">
-    <input matInput type="email" id="email" name="email" placeholder="Email">
-  </mat-form-field>
-  <br/>
-  <mat-form-field color="accent">
-    <input matInput type="text" id="phone_number" name="phone_number" placeholder="Phone Number">
-  </mat-form-field>
-  <br/>
-  <mat-form-field color="accent">
-    <textarea matInput name="idea" rows="6" [(ngModel)]="enteredValue" placeholder="Describe Your Idea" ></textarea>
-  </mat-form-field>
-  <br/>
-  <button  class="text-white blue lighten-1" mat-raised-button (click)="onAddIdea()">Submit</button>
-  <p><small>By clicking 'Submit', you confirm you have read and agree to our <a class="orange-text" href="">Privacy Policy</a> and <a class="orange-text" href="">Non-Disclosure Agreement</a></small></p>
-  <p class="grey-text"><small>*All submissions are subject to approval by the development team, we will still respect your creative content and promise not to utilize it</small></p>
+  <form (submit)="onAddIdea(ideaForm)" #ideaForm="ngForm">
+    <mat-form-field color="accent">
+      <input matInput
+             type="text"
+             id="first_name"
+             name="first_name"
+             ngModel #first_name="ngModel"
+             placeholder="First Name"
+             required
+             minlength="2"
+             pattern="[a-zA-Z]+">
+      <mat-error *ngIf="first_name.invalid">Please enter your first name</mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field color="accent">
+      <input matInput
+             type="text"
+             id="last_name"
+             name="last_name"
+             placeholder="Last Name"
+             ngModel #last_name="ngModel"
+             required
+             minlength="2"
+             pattern="[a-zA-Z]+">
+      <mat-error *ngIf="last_name.invalid">Please enter your last name</mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field color="accent">
+      <input matInput
+             type="email"
+             id="email"
+             name="email"
+             placeholder="Email"
+             ngModel #email="ngModel"
+             required
+             email
+             pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+      <mat-error *ngIf="email.invalid">Please enter a valid email address</mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field color="accent">
+      <input matInput
+             type="text"
+             id="phone_number"
+             name="phone_number"
+             placeholder="Phone Number (optional)" ngModel #phone_number="ngModel"
+             pattern="[\(]\d{3}[\)][\-]\d{3}[\-]\d{4}">
+      <mat-hint>Phone Number Format: (XXX)-XXX-XXXX</mat-hint>
+    </mat-form-field>
+    <br/>
+    <mat-form-field color="accent">
+    <input matInput
+              type="text"
+              name="app_name"
+              placeholder="App Name (optional)"
+              ngModel #app_name="ngModel"
+              >
+      <mat-hint>You can choose a name now or decide later</mat-hint>
+    </mat-form-field>
+    <br/>
+    <mat-form-field color="accent">
+    <textarea matInput
+              cdkTextareaAutosize
+              name="description"
+              placeholder="Describe Your Idea"
+              ngModel #description="ngModel"
+              required></textarea>
+      <mat-error *ngIf="description.invalid">Please describe your idea, so we can create it</mat-error>
+    </mat-form-field>
+    <br/>
+    <button class="text-white blue lighten-1" mat-raised-button type="submit">Submit</button>
+    <p><small>By clicking 'Submit', you confirm you have read and agree to our <a class="orange-text" href="">Privacy
+      Policy</a> and <a class="orange-text" href="">Non-Disclosure Agreement</a></small></p>
+    <p class="grey-text"><small>*All submissions are subject to approval by the development team, we will still respect
+      your creative content and promise not to utilize it</small></p>
+  </form>
 </mat-card>
+<script>
+  import {$} from "protractor";
+
+  function phoneMask() {
+    console.log("Phone Mask Function");
+    var num = $(this).val().replace(/\D/g,'');
+    $(this).val(num.substring(0,1) + '(' + num.substring(1,4) + ')' + num.substring(4,7) + '-' + num.substring(7,11));
+  }
+  $('[id="phone_number"]').keyup(phoneMask);
+</script>
 
