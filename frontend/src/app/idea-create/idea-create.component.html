@@ -76,14 +76,5 @@
       your creative content and promise not to utilize it</small></p>
   </form>
 </mat-card>
-<script>
-  import {$} from "protractor";
 
-  function phoneMask() {
-    console.log("Phone Mask Function");
-    var num = $(this).val().replace(/\D/g,'');
-    $(this).val(num.substring(0,1) + '(' + num.substring(1,4) + ')' + num.substring(4,7) + '-' + num.substring(7,11));
-  }
-  $('[id="phone_number"]').keyup(phoneMask);
-</script>
 

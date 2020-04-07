@@ -1,11 +1,14 @@
 import { Idea } from './idea.model';
 import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import { WebService} from "./web.service";
 
 @Injectable({providedIn: 'root'})
 export class IdeaService {
+  constructor(private webService: WebService) { }
+
   addIdea(idea: Idea) {
-    console.log(idea.first_name);
     // Send to Backend //
+    console.log("In idea service");
+    this.webService.post('sendmail', idea);
   }
 }

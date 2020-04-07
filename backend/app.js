@@ -19,8 +19,8 @@ app.listen(3000, () => {
 // define a sendmail endpoint, which will send emails and response with the corresponding status
 app.post("/sendmail", (req, res) => {
     console.log("request came");
-    let user = req.body;
-    sendConfirmationMail(user, (err, info) => {
+    let idea = req.body;
+    sendConfirmationMail(idea, (err, info) => {
         if (err) {
             console.log(err);
             res.status(400);
@@ -32,28 +32,19 @@ app.post("/sendmail", (req, res) => {
     });
 });
 
-const sendConfirmationMail = (user, callback) => {
+const sendConfirmationMail = (idea, callback) => {
     nodemailer.sendEmail({
         host: "smtp.office365.com",
         port: 587,
         secure: false,
         auth: {
-            user: "pjsmith@pjhdevs.io",
-            pass: "Nova2019!"
+            user: "jcharrison@pjhdevs.io",
+            pass: "MySuperSecretPassword2"
         },
-        from: `"PJHDevs", "no-reply@pjhdevs.io"`,
-        to: "prestonsmith657@gmail.com",
-        subject: "Test",
-        html: "<table style='border: 2px solid black'>" +
-            "<tr style='border: 2px solid black'>" +
-            "<th>Cool</th>" +
-            "<th>Not Cool</th>" +
-            "</tr>" +
-            "<tr>" +
-            "<td>X</td>" +
-            "<td></td>" +
-            "</tr>" +
-            "</table>"
+        from: `"PJHDevs", "jcharrison@pjhdevs.io"`,
+        to: `${idea.email}`,
+        subject: `${idea.app_name}`,
+        html: "<h1>The backend service works</h1>"
     });
 
     callback();

@@ -11,10 +11,10 @@ export class WebService {
     this.ROOT_URL = "http://localhost:3000";
   }
 
-  get(uri: string) {
-    return this.http.get(`${this.ROOT_URL}/${uri}`);
-  }
   post(uri: string, payload: Object) {
-    return this.http.get(`${this.ROOT_URL}/${uri}`, payload);
+    console.log("web service");
+    this.http.post(`${this.ROOT_URL}/${uri}`, payload);
+    console.log(payload);
+    console.log(this.ROOT_URL+'/'+uri);
   }
 }
