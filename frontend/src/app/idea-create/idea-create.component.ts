@@ -20,7 +20,6 @@ export class IdeaCreateComponent {
       app_name: form.value.app_name,
       description: form.value.description,
     };
-    console.log("In idea-create.component");
     this.ideaService.addIdea(idea);
   }
 }

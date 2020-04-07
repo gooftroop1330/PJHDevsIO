@@ -12,9 +12,6 @@ export class WebService {
   }
 
   post(uri: string, payload: Object) {
-    console.log("web service");
-    this.http.post(`${this.ROOT_URL}/${uri}`, payload);
-    console.log(payload);
-    console.log(this.ROOT_URL+'/'+uri);
+    this.http.post(`${this.ROOT_URL}/${uri}`, payload).subscribe();
   }
 }

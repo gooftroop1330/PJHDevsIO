@@ -8,7 +8,6 @@ export class IdeaService {
 
   addIdea(idea: Idea) {
     // Send to Backend //
-    console.log("In idea service");
     this.webService.post('sendmail', idea);
   }
 }

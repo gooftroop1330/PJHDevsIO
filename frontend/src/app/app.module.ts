@@ -20,6 +20,7 @@ import {WebDevComponent} from "./web-dev/web-dev.component";
 import {LegacyComponent} from "./legacy/legacy.component";
 import {MobiDevComponent} from "./mobi-dev/mobi-dev.component";
 import {EnterpriseComponent} from "./enterprise/enterprise.component";
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {EnterpriseComponent} from "./enterprise/enterprise.component";
     MatButtonModule,
     MatToolbarModule,
     MDBBootstrapModule.forRoot(),
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

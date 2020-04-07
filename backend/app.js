@@ -38,16 +38,18 @@ const sendConfirmationMail = (idea, callback) => {
         port: 587,
         secure: false,
         auth: {
-            user: "jcharrison@pjhdevs.io",
-            pass: "MySuperSecretPassword2"
+            user: "no-reply@pjhdevs.io",
+            pass: "OfMice&Men2020??"
         },
-        from: `"PJHDevs", "jcharrison@pjhdevs.io"`,
+        from: `"PJHDevs", "no-reply@pjhdevs.io"`,
         to: `${idea.email}`,
         subject: `${idea.app_name}`,
-        html: "<h1>The backend service works</h1>"
+        html: "<h1>The backend service works</h1>",
+        onError: (e) => callback(e,null),
+        onSuccess: (i) => callback(null,i)
     });
 
-    callback();
+
 };
 
 

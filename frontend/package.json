@@ -25,6 +25,7 @@
     "angular-bootstrap-md": "^9.0.1",
     "bootstrap-scss": "^4.4.1",
     "hamburgers": "^1.1.3",
+    "ngx-mask": "^8.2.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
