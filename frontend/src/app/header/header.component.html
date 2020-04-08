@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark grey darken-3">
-  <img id="topLogo" src="../../assets/logo.png" alt="Logo">
+  <a routerLink=""><img id="topLogo" src="../../assets/logo.png" alt="Logo"></a>
   <p class="text-white">PJH Devs</p>
     <button class="hamburger hamburger--spin" (click)="clickEvent()" [ngClass]="status ? 'is-active' : ''" type="button">
       <span class="hamburger-box">
@@ -8,6 +8,7 @@
     </button>
   <div mdbCollapse [isCollapsed]="true" class="navbar-collapse">
     <ul class="list-unstyled">
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect routerLink="">Home</a></li>
       <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#webDev">Web Development</a></li>
       <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#mobiDev">Mobile Development</a></li>
       <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#legacy">Legacy Modernization</a></li>

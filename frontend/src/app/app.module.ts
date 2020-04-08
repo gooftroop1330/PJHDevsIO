@@ -24,6 +24,8 @@ import { NgxMaskModule } from 'ngx-mask';
 import {PrivacyComponent} from "./privacy/privacy.component";
 import {NdaComponent} from "./nondisclosure/nda.component";
 import {HomeComponent} from "./home/home.component";
+import {ContactComponent} from "./contact/contact.component";
+import {TermsComponent} from "./terms/terms.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {HomeComponent} from "./home/home.component";
     EnterpriseComponent,
     PrivacyComponent,
     NdaComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
