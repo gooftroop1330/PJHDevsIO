@@ -22,7 +22,7 @@ export class IdeaCreateComponent{
 
     setTimeout(() => {
       this.frame.hide();
-    }, 5000);
+    }, 9500);
   }
   onAddIdea(form: NgForm) {
     if(form.invalid) { return; }
