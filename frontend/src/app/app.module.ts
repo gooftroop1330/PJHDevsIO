@@ -4,7 +4,7 @@ import { HttpClientModule } from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {IdeaCreateComponent} from './idea-create/idea-create.component';
@@ -26,6 +26,15 @@ import {NdaComponent} from "./nondisclosure/nda.component";
 import {HomeComponent} from "./home/home.component";
 import {ContactComponent} from "./contact/contact.component";
 import {TermsComponent} from "./terms/terms.component";
+import {
+  RECAPTCHA_SETTINGS,
+  RecaptchaLoaderService,
+  RecaptchaModule,
+  RecaptchaFormsModule,
+  RecaptchaSettings,
+} from 'ng-recaptcha';
+
+const globalSettings: RecaptchaSettings = { siteKey: '6Levs-cUAAAAAIj6_XJ3ZkGzRjv8TpifKsahflfH' };
 
 @NgModule({
   declarations: [
@@ -57,9 +66,15 @@ import {TermsComponent} from "./terms/terms.component";
     MatToolbarModule,
     MDBBootstrapModule.forRoot(),
     MatCheckboxModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    RecaptchaModule,
+    RecaptchaFormsModule,
+
   ],
-  providers: [],
+  providers: [{
+    provide: RECAPTCHA_SETTINGS,
+    useValue: globalSettings,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

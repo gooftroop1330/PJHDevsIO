@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { NgForm } from "@angular/forms";
+import {NgForm} from "@angular/forms";
 import { Idea } from '../idea.model';
 import { IdeaService } from '../idea.service'
 
@@ -8,8 +8,13 @@ import { IdeaService } from '../idea.service'
   templateUrl: './idea-create.component.html',
   styleUrls: ['./idea-create.component.css']
 })
-export class IdeaCreateComponent {
+export class IdeaCreateComponent{
   constructor(private ideaService: IdeaService) { }
+
+  resolved(captchaResponse: string) {
+    console.log("Resolved captcha with response:" + captchaResponse);
+  }
+
   onAddIdea(form: NgForm) {
     if(form.invalid) { return; }
     const idea: Idea = {

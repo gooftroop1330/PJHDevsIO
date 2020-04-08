@@ -1,5 +1,5 @@
 <mat-card id="create-idea">
-  <form (submit)="onAddIdea(ideaForm)" #ideaForm="ngForm">
+  <form (submit)="onAddIdea(ideaForm)" #ideaForm="ngForm" >
     <mat-form-field color="accent">
       <input matInput
              type="text"
@@ -70,6 +70,13 @@
       <mat-error *ngIf="description.invalid">Please describe your idea, so we can create it</mat-error>
     </mat-form-field>
     <br/>
+    <re-captcha
+      ngModel #captcha="ngModel"
+      name="captcha"
+      (resolved)="resolved($event)"
+      required
+    ></re-captcha>
+  <br/>
     <button class="text-white blue lighten-1" mat-raised-button type="submit">Submit</button>
     <p><small>By clicking 'Submit', you confirm you have read and agree to our <a class="orange-text" routerLink="/privacy">Privacy
       Policy</a>, our <a class="orange-text" routerLink="/termsandconditions">Terms and Conditions</a> and are over the age of 13.</small></p>
