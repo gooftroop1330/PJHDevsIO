@@ -1,6 +1,7 @@
 mat-form-field, textarea {
   width: 100%;
   resize: none;
+  padding-bottom: 6px;
 }
 
 mat-card {

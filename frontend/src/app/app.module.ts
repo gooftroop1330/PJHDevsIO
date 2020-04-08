@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {MDBBootstrapModule, ModalDirective} from 'angular-bootstrap-md';
 import {IdeaCreateComponent} from './idea-create/idea-create.component';
 import { MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -51,7 +51,7 @@ const globalSettings: RecaptchaSettings = { siteKey: '6Levs-cUAAAAAIj6_XJ3ZkGzRj
     NdaComponent,
     HomeComponent,
     ContactComponent,
-    TermsComponent
+    TermsComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +69,6 @@ const globalSettings: RecaptchaSettings = { siteKey: '6Levs-cUAAAAAIj6_XJ3ZkGzRj
     NgxMaskModule.forRoot(),
     RecaptchaModule,
     RecaptchaFormsModule,
-
   ],
   providers: [{
     provide: RECAPTCHA_SETTINGS,

@@ -12,7 +12,7 @@ p {
 }
 nav {
   background: rgb(34,34,34);
-  background: linear-gradient(180deg, rgba(34,34,34,1) 0%, rgba(68,68,68,1) 100%);
+  background: linear-gradient(180deg, rgba(68,68,68,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 .navbar-collapse {
