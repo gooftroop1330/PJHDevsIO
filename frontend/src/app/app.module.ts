@@ -21,6 +21,9 @@ import {LegacyComponent} from "./legacy/legacy.component";
 import {MobiDevComponent} from "./mobi-dev/mobi-dev.component";
 import {EnterpriseComponent} from "./enterprise/enterprise.component";
 import { NgxMaskModule } from 'ngx-mask';
+import {PrivacyComponent} from "./privacy/privacy.component";
+import {NdaComponent} from "./nondisclosure/nda.component";
+import {HomeComponent} from "./home/home.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { NgxMaskModule } from 'ngx-mask';
     WebDevComponent,
     LegacyComponent,
     MobiDevComponent,
-    EnterpriseComponent
+    EnterpriseComponent,
+    PrivacyComponent,
+    NdaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

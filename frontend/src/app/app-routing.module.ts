@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-//import {webdevcomponent} from './webdevcomponent/web-dev.component';
-  //path '/privacyPolicy'
 
-const routes: Routes = [];
-/*
-const routes : Routes = [
-  { path: ' ', component: webdevcomponent }
-  {path: ' ', redirectTo: home, pathMatch: 'full'}
-  ];
- */
+import {PrivacyComponent} from "./privacy/privacy.component";
+import {NdaComponent} from "./nondisclosure/nda.component";
+import {HomeComponent} from "./home/home.component";
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'privacy', component: PrivacyComponent},
+  {path: 'nda', component: NdaComponent},
+
+  {path: '**', redirectTo: ''}
+];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
