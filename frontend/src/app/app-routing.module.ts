@@ -8,7 +8,7 @@ import {HomeComponent} from "./home/home.component";
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'privacy', component: PrivacyComponent},
-  {path: 'nda', component: NdaComponent},
+  //{path: 'nda', component: NdaComponent},
 
   {path: '**', redirectTo: ''}
 ];
