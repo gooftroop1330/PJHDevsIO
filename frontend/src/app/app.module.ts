@@ -33,6 +33,7 @@ import {
   RecaptchaFormsModule,
   RecaptchaSettings,
 } from 'ng-recaptcha';
+import {MatIconModule} from "@angular/material/icon";
 
 const globalSettings: RecaptchaSettings = { siteKey: '6Levs-cUAAAAAIj6_XJ3ZkGzRjv8TpifKsahflfH' };
 
@@ -53,23 +54,24 @@ const globalSettings: RecaptchaSettings = { siteKey: '6Levs-cUAAAAAIj6_XJ3ZkGzRj
     ContactComponent,
     TermsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatCardModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MDBBootstrapModule.forRoot(),
-    MatCheckboxModule,
-    NgxMaskModule.forRoot(),
-    RecaptchaModule,
-    RecaptchaFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatCardModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MDBBootstrapModule.forRoot(),
+        MatCheckboxModule,
+        NgxMaskModule.forRoot(),
+        RecaptchaModule,
+        RecaptchaFormsModule,
+        MatIconModule,
+    ],
   providers: [{
     provide: RECAPTCHA_SETTINGS,
     useValue: globalSettings,
