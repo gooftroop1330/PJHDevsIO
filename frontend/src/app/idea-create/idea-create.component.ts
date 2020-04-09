@@ -17,12 +17,8 @@ export class IdeaCreateComponent{
     console.log("Resolved captcha with response:" + captchaResponse);
   }
 
-  showAndHideModal() {
+  showModal() {
     this.frame.show();
-
-    setTimeout(() => {
-      this.frame.hide();
-    }, 9500);
   }
   onAddIdea(form: NgForm) {
     if(form.invalid) { return; }
@@ -35,7 +31,7 @@ export class IdeaCreateComponent{
       description: form.value.description,
     };
     this.ideaService.addIdea(idea);
-    this.showAndHideModal();
+    this.showModal();
     form.resetForm();
   }
 }

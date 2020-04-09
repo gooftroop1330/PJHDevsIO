@@ -7,3 +7,13 @@ footer {
   width: 125px;
   height: 125px;
 }
+#logo {
+  text-align: center;
+}
+#links {
+  text-align: center;
+  font-weight: 100;
+}
+#links,a:hover {
+  color: rgba(117,200,226,1);
+}
