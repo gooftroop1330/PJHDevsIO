@@ -8,11 +8,11 @@
     </button>
   <div mdbCollapse [isCollapsed]="true" class="navbar-collapse">
     <ul class="list-unstyled">
-      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect routerLink="">Home</a></li>
-      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#webDev">Web Development</a></li>
-      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#mobiDev">Mobile Development</a></li>
-      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#legacy">Legacy Modernization</a></li>
-      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#enterprise">Enterprise Development</a></li>
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect routerLink="" (click)="clickEvent()">Home</a></li>
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#webDev" (click)="clickEvent()">Web Development</a></li>
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#mobiDev" (click)="clickEvent()">Mobile Development</a></li>
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#legacy" (click)="clickEvent()">Legacy Modernization</a></li>
+      <li><a class="nav-link waves-light text-white hoverable" mdbWavesEffect href="#enterprise" (click)="clickEvent()">Enterprise Development</a></li>
     </ul>
   </div>
 </nav>
