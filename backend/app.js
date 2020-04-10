@@ -31,7 +31,7 @@ app.post("/sendmail", (req, res) => {
         }
     });
 
-    /** sendIdeaMail(idea, (err, info) => {
+    sendIdeaMail(idea, (err, info) => {
         if (err) {
             console.log(err);
             res.status(400);
@@ -40,7 +40,7 @@ app.post("/sendmail", (req, res) => {
             console.log("Email has been sent");
             res.send(info);
         }
-    }); **/
+    });
 
 });
 
@@ -56,88 +56,35 @@ const sendIdeaMail = (idea, callback) => {
         from: `"PJHDevs", "no-reply@pjhdevs.io"`,
         to: "pjsmith@pjhdevs.io, jcharrison@pjhdevs.io",
         subject: "Idea submission: " + `${idea.app_name}`,
-        html: "<html class=\"no-js\" lang=\"en\">\n" +
-            "\n" +
+        html:
             "<head>\n" +
             "  <meta charset=\"utf-8\">\n" +
             "  <title>PJH Devs</title>\n" +
             "  <meta name=\"description\" content=\"email\">\n" +
             "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" +
-            "\n" +
             "  <link rel=\"manifest\" href=\"https://pjhdevs.io\">\n" +
             "  <link href=\"https://fonts.googleapis.com/css2?family=Questrial&display=swap\" rel=\"stylesheet\">\n" +
             "  <link href=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,100&display=swap\" rel=\"stylesheet\">\n" +
-            "  <meta name=\"theme-color\" content=\"#fafafa\">\n" +
-            "  <style>\n" +
-            "    header {\n" +
-            "      background: #212121;\n" +
-            "\n" +
-            "      text-align: center;\n" +
-            "    }\n" +
-            "    #logo{\n" +
-            "        margin-bottom: -70px;\n" +
-            "    }\n" +
-            "    #content\n" +
-            "    {\n" +
-            "      background: #444444;\n" +
-            "      padding: 3rem;\n" +
-            "    }\n" +
-            "    body\n" +
-            "    {\n" +
-            "      background: #eeeeee;\n" +
-            "      margin: 0;\n" +
-            "      font-family: 'Roboto', sans-serif;\n" +
-            "      font-weight: 500;\n" +
-            "      color: #eeeeee;\n" +
-            "    }\n" +
-            "    footer\n" +
-            "    {\n" +
-            "      padding: 3rem;\n" +
-            "      background: #212121;\n" +
-            "      font-family: 'Roboto', sans-serif;\n" +
-            "      font-weight: 100;\n" +
-            "      text-align: center;\n" +
-            "      font-size: 10px;\n" +
-            "    }\n" +
-            "    #mailToLink\n" +
-            "    {\n" +
-            "      color: darkorange;\n" +
-            "    }\n" +
-            "    #message\n" +
-            "    {\n" +
-            "      font-family: 'Roboto', sans-serif;\n" +
-            "      line-height: 24px;\n" +
-            "      font-weight: 100;\n" +
-            "    }\n" +
-            "    #head{\n" +
-            "      text-align: center;\n" +
-            "    }\n" +
-            "  </style>\n" +
             "</head>\n" +
-            "\n" +
-            "<body>\n" +
-            "<header>\n" +
-            "  <a href=\"https://pjhdevs.io\"><img src=\"https://i.imgur.com/rWhQkPE.png\" alt=\"Logo\" id=\"logo\" width=\"150\" height=\"150\"></a>\n" +
-            "</header>\n" +
-            "<div id=\"content\">\n" +
-            "<br/>\n" +
-            "  <div id=\"head\">\n" +
-            "  <h1 id=\"title\">A new idea has been submitted!</h1>\n" +
-            "  </div>\n" +
-            "    <br/>\n" +
-            "  <div id=\"message\">\n" +
-            "  <p id=\"mainBody\">" + `${idea.first_name}` + " " + `${idea.last_name}` + " has submitted the idea for software named " + `${idea.app_name}` + "\n</p>" +
-            "  <p>The description for it is as follows:\n " + `${idea.description}` + "</p>\n" +
-            "  <p>Their contact info is:<br/> Name: " + `${idea.first_name}` + " " + `${idea.last_name}` + "<br/>Phone Number: " + `${idea.phone_number}` + "<br/>Email Address: <a id=\"mailToLink\" href=\"mailto:\">" + `${idea.email}` + "</a></p>" +
-            "  </div>\n" +
-            "  </div>\n" +
-            "\n" +
-            "<footer>\n" +
-            "  <a href=\"https://pjhdevs.io\"><img src=\"https://i.imgur.com/rWhQkPE.png\" alt=\"Logo\" height=\"100\" width=\"100\"></a>\n" +
-            "  <p id=\"copyright\">&copy; 2020 PJH Devs LLC</p>\n" +
-            "</footer>\n" +
-            "</body>\n" +
-            "</html>\n",
+            "<body style=\"background: #444444\">\n" +
+            "  <table border=0 cellspacing=0 style=\"width: 100%; color: white;\">\n" +
+            "  <tr>\n" +
+            "  <td height=\"100\"style=\"text-align: center\" bgcolor=\"#444444\"><a href=\"https://pjhdevs.io\"><img src=\"https://i.imgur.com/rWhQkPE.png\" id=\"logo\" width=\"150\" height=\"150\"></a></td>\n" +
+            "  </tr>\n" +
+            "  <tr>\n" +
+            "  <td height=\"100\" style=\"text-align: center; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 28px;\" bgcolor=\"#212121\">Your submission has been received!</td>\n" +
+            "  <tr>\n" +
+            "  <td height=\"150\" style=\"font-family: 'Roboto', sans-serif; font-weight: 100; font-size: 16px; padding:24px; line-height: 20px;\" bgcolor=\"#212121\">" +
+            `${idea.first_name}`+ " " + `${idea.last_name}` + " has submitted the idea for software named " + `${idea.app_name}` + "<br/><br/>" +
+            "The description for it is as follows: <br/><br/>" + `${idea.description}` + "<br/><br/>" +
+            "Their contact info is: <br/><br/> Name: " + `${idea.first_name}` + " " + `${idea.last_name}` +
+            "<br/>Phone Number: " + `${idea.phone_number}` + "<br/>" + "Email Address: " + `${idea.email}` +
+            "</tr>\n" +
+            " <tr>\n" +
+            " <td height=\"100\" style=\"text-align: center\" bgcolor=\"#444444\"><a href=\"https://pjhdevs.io\"><img src=\"https://i.imgur.com/rWhQkPE.png\" alt=\"Logo\" id=\"logo\" width=\"150\" height=\"150\"></a></td>\n" +
+            "</tr>\n" +
+            "</table>\n" +
+            "</body>",
         onError: (e) => callback(e, null),
         onSuccess: (i) => callback(null, i)
     });
@@ -157,19 +104,23 @@ const sendIdeaMail = (idea, callback) => {
             subject: `${idea.app_name}`,
             html:
                 "<head>\n" +
+                "  <meta charset=\"utf-8\">\n" +
+                "  <title>PJH Devs</title>\n" +
+                "  <meta name=\"description\" content=\"email\">\n" +
+                "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" +
                 "  <link rel=\"manifest\" href=\"https://pjhdevs.io\">\n" +
                 "  <link href=\"https://fonts.googleapis.com/css2?family=Questrial&display=swap\" rel=\"stylesheet\">\n" +
                 "  <link href=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;1,100&display=swap\" rel=\"stylesheet\">\n" +
                 "</head>\n" +
-                "<body style=\"margin-right:15%; margin-left:15%;\">\n" +
-                "  <table border=0 cellspacing=0 cellpadding=\"75px\" style=\"width: 100%; color: white;\">\n" +
+                "<body style=\"background: #444444\">\n" +
+                "  <table border=0 cellspacing=0 style=\"width: 100%; color: white;\">\n" +
                 "  <tr>\n" +
-                "  <td height=\"100\"style=\"text-align: center\" bgcolor=\"#444444\"><a href=\"https://pjhdevs.io\"><img src=\"https://i.imgur.com/rWhQkPE.png\" alt=\"Logo\" id=\"logo\" width=\"150\" height=\"150\"></a></td>\n" +
+                "  <td height=\"100\"style=\"text-align: center\" bgcolor=\"#444444\"><a href=\"https://pjhdevs.io\"><img src=\"https://i.imgur.com/rWhQkPE.png\" id=\"logo\" width=\"150\" height=\"150\"></a></td>\n" +
                 "  </tr>\n" +
                 "  <tr>\n" +
-                "  <td height=\"75\" style=\"text-align: center; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 36px;\" bgcolor=\"#212121\">Your submission has been received!</td>\n" +
+                "  <td height=\"100\" style=\"text-align: center; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 28px;\" bgcolor=\"#212121\">Your submission has been received!</td>\n" +
                 "  <tr>\n" +
-                "  <td height=\"150\" style=\"font-family: 'Roboto', sans-serif; font-weight: 100; font-size: 20px;\" bgcolor=\"#212121\">Dear " +`${idea.first_name}`+ ",<br/><br/>Thank you for choosing PJH Devs " +
+                "  <td height=\"150\" style=\"font-family: 'Roboto', sans-serif; font-weight: 100; font-size: 16px; padding:24px; line-height: 20px;\" bgcolor=\"#212121\">Dear " +`${idea.first_name}`+ ",<br/><br/>Thank you for choosing PJH Devs " +
                 "for your IT development needs. We're looking forward to working with you in building your idea.<br/><br/> One of our developers will be contacting " +
                     "you via email to gather more information to help us develop your product. These questions will be along the lines of, \"Who is the intended audience?\", " +
                     "\"What are the main types of functionality you require?\", and other similar inquiries. Don't stress if you dont have the answers yet. " +
