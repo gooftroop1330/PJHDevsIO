@@ -7,8 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class WebService {
   readonly ROOT_URL;
   constructor(private http: HttpClient) {
-    //change ROOT_URL to parameter when we send to server ?? url: string
-    this.ROOT_URL = "http://localhost:3000";
+    this.ROOT_URL = "http://pjhdevs.io";
   }
 
   post(uri: string, payload: Object) {

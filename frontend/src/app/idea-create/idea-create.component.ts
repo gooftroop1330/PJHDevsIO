@@ -13,9 +13,7 @@ export class IdeaCreateComponent{
   constructor(private ideaService: IdeaService) { }
   @ViewChild('frame', { static: true }) frame: ModalDirective;
 
-  resolved(captchaResponse: string) {
-    console.log("Resolved captcha with response:" + captchaResponse);
-  }
+  resolved(captchaResponse: string) {}
 
   showModal() {
     this.frame.show();
