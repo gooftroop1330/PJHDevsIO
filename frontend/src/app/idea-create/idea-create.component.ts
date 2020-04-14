@@ -13,9 +13,7 @@ export class IdeaCreateComponent{
   constructor(private ideaService: IdeaService) { }
   @ViewChild('frame', { static: true }) frame: ModalDirective;
 
-  resolved(captchaResponse: string) {
-    console.log("Resolved captcha with response:" + captchaResponse);
-  }
+  resolved(captchaResponse: string) {}
 
   showModal() {
     this.frame.show();
@@ -23,12 +21,12 @@ export class IdeaCreateComponent{
   onAddIdea(form: NgForm) {
     if(form.invalid) { return; }
     const idea: Idea = {
-      first_name: form.value.first_name,
-      last_name: form.value.last_name,
-      email: form.value.email,
+      first_name: form.value.first_name.trim(),
+      last_name: form.value.last_name.trim(),
+      email: form.value.email.trim(),
       phone_number: form.value.phone_number,
-      app_name: form.value.app_name,
-      description: form.value.description,
+      app_name: form.value.app_name.trim(),
+      description: form.value.description.trim(),
     };
     this.ideaService.addIdea(idea);
     this.showModal();

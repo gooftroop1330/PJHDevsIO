@@ -7,7 +7,6 @@ export class IdeaService {
   constructor(private webService: WebService) { }
 
   addIdea(idea: Idea) {
-    // Send to Backend //
     this.webService.post('sendmail', idea);
   }
 }

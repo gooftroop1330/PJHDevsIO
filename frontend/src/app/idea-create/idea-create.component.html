@@ -41,7 +41,7 @@
              placeholder="First Name"
              required
              minlength="2"
-             pattern="[a-zA-Z]+">
+             pattern="[a-zA-Z \-\]+">
       <mat-error *ngIf="first_name.invalid">Please enter your first name</mat-error>
     </mat-form-field>
     <br/>
@@ -54,7 +54,7 @@
              ngModel #last_name="ngModel"
              required
              minlength="2"
-             pattern="[a-zA-Z]+">
+             pattern="[a-zA-Z \-\]+">
       <mat-error *ngIf="last_name.invalid">Please enter your last name</mat-error>
     </mat-form-field>
     <br/>
@@ -86,7 +86,7 @@
     <input matInput
               type="text"
               name="app_name"
-              placeholder="App Name (optional)"
+              placeholder="Application Name (optional)"
               ngModel #app_name="ngModel"
               >
       <mat-hint>You can choose a name now or decide later</mat-hint>
@@ -96,17 +96,16 @@
     <textarea matInput
               cdkTextareaAutosize
               name="description"
-              placeholder="Describe Your Idea"
+              placeholder="Brief description of your request"
               ngModel #description="ngModel"
               rows="2"
-              required></textarea>
-      <mat-error *ngIf="description.invalid">Please describe your idea, so we can create it</mat-error>
+              required maxlength="1000"></textarea>
+      <mat-error *ngIf="description.invalid">Please briefly describe your request, keep it to 1000 characters or less</mat-error>
     </mat-form-field>
     <br/>
     <re-captcha
       ngModel #captcha="ngModel"
       name="captcha"
-      (resolved)="resolved($event)"
       required
     ></re-captcha>
   <br/>
@@ -118,4 +117,3 @@
   </form>
 </mat-card>
 
-<!--  and <a class="orange-text" routerLink="/nda">Non-Disclosure Agreement</a> -->

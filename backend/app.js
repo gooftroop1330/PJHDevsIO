@@ -4,29 +4,25 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodejs-nodemailer-outlook");
 
-// create a new Express application instance 
 const app = express();
 
-//configure the Express middleware to accept CORS requests and parse request body into JSON
 app.use(cors());
 app.use(bodyParser.json());
 
-//start application server on port 3000
 app.listen(3000, () => {
-    console.log("The server started on port 3000");
+    console.log("1");
 });
 
-// define a sendmail endpoint, which will send emails and response with the corresponding status
 app.post("/sendmail", (req, res) => {
-    console.log("request came");
+    console.log("2");
     let idea = req.body;
     sendConfirmationMail(idea, (err, info) => {
         if (err) {
             console.log(err);
             res.status(400);
-            res.send({ error: "Failed to send email" });
+            res.send({ error: "3b" });
         } else {
-            console.log("Email has been sent");
+            console.log("3a");
             res.send(info);
         }
     });
@@ -35,9 +31,9 @@ app.post("/sendmail", (req, res) => {
         if (err) {
             console.log(err);
             res.status(400);
-            res.send({ error: "Failed to send email" });
+            res.send({ error: "4b" });
         } else {
-            console.log("Email has been sent");
+            console.log("4a");
             res.send(info);
         }
     });
