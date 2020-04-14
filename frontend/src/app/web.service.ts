@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class WebService {
   readonly ROOT_URL;
   constructor(private http: HttpClient) {
-    this.ROOT_URL = "http://pjhdevs.io";
+    this.ROOT_URL = "https://pjhdevs.io";
   }
 
   post(uri: string, payload: Object) {
