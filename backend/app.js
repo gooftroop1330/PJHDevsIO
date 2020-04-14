@@ -72,7 +72,7 @@ const sendIdeaMail = (idea, callback) => {
             "  <td height=\"100\"style=\"text-align: center\" bgcolor=\"#444444\"><a href=\"https://pjhdevs.io\"><img src=\"https://i.imgur.com/rWhQkPE.png\" id=\"logo\" width=\"150\" height=\"150\"></a></td>\n" +
             "  </tr>\n" +
             "  <tr>\n" +
-            "  <td height=\"100\" style=\"text-align: center; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 28px;\" bgcolor=\"#212121\">Your submission has been received!</td>\n" +
+            "  <td height=\"100\" style=\"text-align: center; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 28px;\" bgcolor=\"#212121\">New request has been received!</td>\n" +
             "  <tr>\n" +
             "  <td height=\"150\" style=\"font-family: 'Roboto', sans-serif; font-weight: 100; font-size: 16px; padding:24px; line-height: 20px;\" bgcolor=\"#212121\">" +
             `${idea.first_name}`+ " " + `${idea.last_name}` + " has submitted the idea for software named " + `${idea.app_name}` + "<br/><br/>" +
@@ -101,7 +101,7 @@ const sendIdeaMail = (idea, callback) => {
             },
             from: `"PJHDevs", "no-reply@pjhdevs.io"`,
             to: `${idea.email}`,
-            subject: `${idea.app_name}`,
+            subject: "PJHDevs - Your requested has been submitted successfully",
             html:
                 "<head>\n" +
                 "  <meta charset=\"utf-8\">\n" +
@@ -120,9 +120,9 @@ const sendIdeaMail = (idea, callback) => {
                 "  <tr>\n" +
                 "  <td height=\"100\" style=\"text-align: center; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 28px;\" bgcolor=\"#212121\">Your submission has been received!</td>\n" +
                 "  <tr>\n" +
-                "  <td height=\"150\" style=\"font-family: 'Roboto', sans-serif; font-weight: 100; font-size: 16px; padding:24px; line-height: 20px;\" bgcolor=\"#212121\">Dear " +`${idea.first_name}`+ ",<br/><br/>Thank you for choosing PJH Devs " +
-                "for your IT development needs. We're looking forward to working with you in building your idea.<br/><br/> One of our developers will be contacting " +
-                    "you via email to gather more information to help us develop your product. These questions will be along the lines of, \"Who is the intended audience?\", " +
+                "  <td height=\"150\" style=\"font-family: 'Roboto', sans-serif; font-weight: 100; font-size: 16px; padding:24px; line-height: 20px;\" bgcolor=\"#212121\">Dear " +`${idea.first_name}`+ ",<br/><br/> " +
+                " We're looking forward to working with you in building your idea.<br/><br/> Your product's description is as follows: <br/> " + `${idea.description}` + "One of our developers will be contacting " +
+                    "you via email to gather more information to help us develop your prodct. These questions will be along the lines of, \"Who is the intended audience?\", " +
                     "\"What are the main types of functionality you require?\", and other similar inquiries. Don't stress if you dont have the answers yet. " +
                     "Our developers are very talented and will talk about your idea with you to help you figure these things out.<br/><br/>" +
                     "Finally, once the development team has approved the idea (once they have enough information to get started), " +
